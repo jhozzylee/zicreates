@@ -1,6 +1,6 @@
 // src/components/BookCall.js
-import React, { useState } from 'react';
-import Modal from 'react-modal';
+//import React, { useState } from 'react';
+/*import Modal from 'react-modal';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -154,6 +154,16 @@ const BookCall = ({ isOpen, onRequestClose }) => {
       )}
     </Modal>
   );
+};*/
+
+const BookCall = () => {
+  // your component code here
+  return (
+    <div>
+      {/* JSX */}
+    </div>
+  );
 };
+
 
 export default BookCall;

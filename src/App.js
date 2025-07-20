@@ -4,7 +4,6 @@ import ScrollToHash from "./Pages/ScrollToHash";
 import Home from "./Pages/Home";
 import Portfolio from "./Pages/Portfolio";
 import './App.css';
-import 'react-datepicker/dist/react-datepicker.css';
 function App() {
   return (
     <BrowserRouter>
