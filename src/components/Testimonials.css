@@ -1,0 +1,68 @@
+.swiper-pagination-bullet-active {
+    background-color: #30D5C8; /*  primary */
+    opacity: 1;
+  }
+  
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8x;
+    background-color: #f0f8ff; /* neutral */
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background-color: #30D5C8; /*  primary */
+    opacity: 1;
+    width: 10px;
+    height: 10px;
+  }
+
+  /* Custom Swiper Navigation Buttons */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #30D5C8;           /* Your primary color */
+  font-size: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;     /* Prevent clicking when hidden */
+}
+
+/* Show arrows when hovering on the whole section */
+.testimonials-section:hover .swiper-button-prev,
+.testimonials-section:hover .swiper-button-next {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Optional: Add background or padding */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 24px;          /* Arrow size */
+}
+
+/* Positioning (you can tweak) */
+.swiper-button-prev {
+  left: 32px;
+}
+
+.swiper-button-next {
+  right: 32px;
+}
+
+/* Custom Swiper Pagination Bullets */
+.pricing-pagination .swiper-pagination-bullet,
+.extra-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #f0f8ff;
+  opacity: 0.4;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+.pricing-pagination .swiper-pagination-bullet-active,
+.extra-pagination .swiper-pagination-bullet-active {
+  background-color: #30D5C8;
+  opacity: 1;
+}
