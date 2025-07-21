@@ -65,8 +65,8 @@ const GetStarted = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-neutral/50 flex items-center justify-center px-4">
-      <div className="bg-background text-neutral w-full max-w-screen-sm md:max-w-screen-md lg:max-w-[1024px] max-h-screen overflow-y-auto rounded-[8px] p-6 sm:p-8 md:p-12 relative">
+    <div className="fixed inset-0 z-50 bg-background/50 flex items-center justify-center px-4">
+      <div className="bg-background border border-neutral/20 text-neutral w-full max-w-screen-sm md:max-w-screen-md lg:max-w-[1024px] max-h-screen overflow-y-auto rounded-[8px] p-6 sm:p-8 md:p-12 relative">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-neutral hover:opacity-70 text-2xl"
