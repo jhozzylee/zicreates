@@ -40,24 +40,28 @@ const GetStarted = ({ isOpen, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.note.trim()) return;
-  
-    const response = await fetch("https://sheetdb.io/api/v1/44eyixm95etfh", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
-  
-    console.log("Response:", response);
-    const result = await response.json();
-    console.log("Result:", result);
-  
-    if (response.ok) {
-      setSubmitted(true);
-      setTimeout(() => {
-        setSubmitted(false);
-        onClose();
-      }, 3000);
-    } else {
+
+    try {
+      const response = await fetch("https://sheetdb.io/api/v1/44eyixm95etfh", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ data: formData }), // ✅ Nesting inside `data`
+      });
+
+      const result = await response.json();
+      console.log("✅ Result:", result);
+
+      if (response.ok) {
+        setSubmitted(true);
+        setTimeout(() => {
+          setSubmitted(false);
+          onClose();
+        }, 3000);
+      } else {
+        alert("❌ Failed to send message. Try again.");
+      }
+    } catch (error) {
+      console.error("❌ Error:", error);
       alert("❌ Failed to send message. Try again.");
     }
   };
@@ -80,13 +84,11 @@ const GetStarted = ({ isOpen, onClose }) => {
 
         {submitted ? (
           <p className="text-neutral font-medium">
-            ✅ Your message was sent successfully. You’ll hear from us within 24
-            hours.
+            ✅ Your message was sent successfully. You’ll hear from us within 24 hours.
           </p>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {/* Full Name */}
               <InputField
                 label="Full Name *"
                 name="fullName"
@@ -95,8 +97,6 @@ const GetStarted = ({ isOpen, onClose }) => {
                 onChange={handleChange}
                 required
               />
-
-              {/* Email */}
               <InputField
                 label="Email *"
                 name="email"
@@ -106,8 +106,6 @@ const GetStarted = ({ isOpen, onClose }) => {
                 onChange={handleChange}
                 required
               />
-
-              {/* Phone */}
               <InputField
                 label="Phone Number"
                 name="contact"
@@ -116,8 +114,6 @@ const GetStarted = ({ isOpen, onClose }) => {
                 onChange={handleChange}
                 required
               />
-
-              {/* Company */}
               <InputField
                 label="Company Name *"
                 name="company"
@@ -125,8 +121,6 @@ const GetStarted = ({ isOpen, onClose }) => {
                 value={formData.company}
                 onChange={handleChange}
               />
-
-              {/* Source */}
               <SelectField
                 label="How did you find us? *"
                 name="source"
@@ -141,8 +135,6 @@ const GetStarted = ({ isOpen, onClose }) => {
                 onChange={handleChange}
                 required
               />
-
-              {/* Budget */}
               <SelectField
                 label="Project Budget"
                 name="budget"
@@ -157,7 +149,6 @@ const GetStarted = ({ isOpen, onClose }) => {
               />
             </div>
 
-            {/* Note */}
             <div className="flex flex-col gap-1.5">
               <label className="text-sm font-medium">Additional Note *</label>
               <textarea
