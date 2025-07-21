@@ -40,29 +40,25 @@ const GetStarted = ({ isOpen, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.note.trim()) return;
-
-    try {
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbwbiOXm8Z8WKRdjyQaFNMbH0ls6wpMdwTqtTaalDQBQYvUE--adIGDxQd_kXiAiQKEo/exec",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      if (response.ok) {
-        setSubmitted(true);
-        setTimeout(() => {
-          setSubmitted(false);
-          onClose();
-        }, 3000);
-      } else {
-        alert("❌ Failed to send message. Try again.");
-      }
-    } catch (error) {
-      alert("⚠️ Network error. Please try again.");
-      console.error(error);
+  
+    const response = await fetch("https://script.google.com/macros/s/AKfycbzwJ5S578rcTW__nZIGbx9J6nr5uu2d0De1OpRO4QP17y86FCCTUi_b08dt2oNllk7d/exec", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+  
+    console.log("Response:", response);
+    const result = await response.json();
+    console.log("Result:", result);
+  
+    if (response.ok) {
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        onClose();
+      }, 3000);
+    } else {
+      alert("❌ Failed to send message. Try again.");
     }
   };
 
@@ -70,7 +66,7 @@ const GetStarted = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 bg-neutral/50 flex items-center justify-center px-4">
-      <div className="bg-background text-neutral w-full max-w-screen-sm md:max-w-screen-md lg:max-w-[1280px] max-h-screen overflow-y-auto rounded-[16px] p-6 sm:p-8 md:p-12 relative">
+      <div className="bg-background text-neutral w-full max-w-screen-sm md:max-w-screen-md lg:max-w-[1024px] max-h-screen overflow-y-auto rounded-[8px] p-6 sm:p-8 md:p-12 relative">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-neutral hover:opacity-70 text-2xl"
