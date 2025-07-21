@@ -37,7 +37,7 @@ const EmailCaptureSection = () => {
             />
             <button
               type="submit"
-              className="absolute top-1 right-1 bottom-1 px-6 sm:px-10 rounded-[40px] text-background bg-neutral text-[14px] hover:bg-primary transition-all duration-200 flex items-center justify-center gap-2"
+              className="absolute top-1 right-1 bottom-1 px-4 sm:px-10 rounded-[40px] text-background bg-neutral text-[14px] hover:bg-primary transition-all duration-200 flex items-center justify-center gap-2"
             >
               {/* On small screens show icon, otherwise show text */}
               <span className="block sm:hidden">
