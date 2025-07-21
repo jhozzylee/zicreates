@@ -14,19 +14,18 @@ const GetStarted = ({ isOpen, onClose }) => {
 
   const [submitted, setSubmitted] = useState(false);
 
+  // Auto-detect country code
   useEffect(() => {
     fetch("https://ipapi.co/json/")
-      .then(res => res.json())
-      .then(data => {
-        if (data?.country_calling_code) {
-          setFormData(prev => ({
-            ...prev,
-            contact: data.country_calling_code,
-          }));
-        }
+      .then((res) => res.json())
+      .then((data) => {
+        setFormData((prev) => ({
+          ...prev,
+          contact: data?.country_calling_code || "+1",
+        }));
       })
       .catch(() => {
-        setFormData(prev => ({
+        setFormData((prev) => ({
           ...prev,
           contact: "+1",
         }));
@@ -35,17 +34,36 @@ const GetStarted = ({ isOpen, onClose }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.note.trim()) return;
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      onClose();
-    }, 3000);
+
+    try {
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbwbiOXm8Z8WKRdjyQaFNMbH0ls6wpMdwTqtTaalDQBQYvUE--adIGDxQd_kXiAiQKEo/exec",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (response.ok) {
+        setSubmitted(true);
+        setTimeout(() => {
+          setSubmitted(false);
+          onClose();
+        }, 3000);
+      } else {
+        alert("❌ Failed to send message. Try again.");
+      }
+    } catch (error) {
+      alert("⚠️ Network error. Please try again.");
+      console.error(error);
+    }
   };
 
   if (!isOpen) return null;
@@ -54,114 +72,95 @@ const GetStarted = ({ isOpen, onClose }) => {
     <div className="fixed inset-0 z-50 bg-neutral/50 flex items-center justify-center px-4">
       <div className="bg-background text-neutral w-full max-w-screen-sm md:max-w-screen-md lg:max-w-[1280px] max-h-screen overflow-y-auto rounded-[16px] p-6 sm:p-8 md:p-12 relative">
         <button
-          className="absolute top-4 right-4 text-neutral hover:opacity-70 text-2xl"
           onClick={onClose}
+          className="absolute top-4 right-4 text-neutral hover:opacity-70 text-2xl"
         >
           ×
         </button>
 
-        <h2 className="text-[28px] md:text-[32px] font-semibold mb-4">In need of creative?</h2>
+        <h2 className="text-[28px] md:text-[32px] font-semibold mb-4">
+          In need of creative?
+        </h2>
 
         {submitted ? (
           <p className="text-neutral font-medium">
-            You’ll get a response from our team within 24-hours.
+            ✅ Your message was sent successfully. You’ll hear from us within 24
+            hours.
           </p>
         ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          
               {/* Full Name */}
-              <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-medium">Full Name *</label>
-                <input
-                  type="text"
-                  name="fullName"
-                  placeholder="Enter your name"
-                  className="w-full p-2.5 rounded-md border border-neutral bg-transparent min-h-[50px] placeholder:text-sm"
-                  value={formData.fullName}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-          
+              <InputField
+                label="Full Name *"
+                name="fullName"
+                placeholder="Enter your name"
+                value={formData.fullName}
+                onChange={handleChange}
+                required
+              />
+
               {/* Email */}
-              <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-medium">Email *</label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Enter your email"
-                  className="w-full p-2.5 rounded-md border border-neutral bg-transparent min-h-[50px] placeholder:text-sm"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-          
-              {/* Phone Number */}
-              <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-medium">Phone Number</label>
-                <input
-                  type="tel"
-                  name="contact"
-                  placeholder="+1 (234) 567 8901"
-                  className="w-full p-2.5 rounded-md border border-neutral bg-transparent min-h-[50px] placeholder:text-sm"
-                  value={formData.contact}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-          
+              <InputField
+                label="Email *"
+                name="email"
+                type="email"
+                placeholder="Enter your email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+
+              {/* Phone */}
+              <InputField
+                label="Phone Number"
+                name="contact"
+                placeholder="+1 (234) 567 8901"
+                value={formData.contact}
+                onChange={handleChange}
+                required
+              />
+
               {/* Company */}
-              <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-medium">Company Name *</label>
-                <input
-                  type="text"
-                  name="company"
-                  placeholder="Your company name"
-                  className="w-full p-2.5 rounded-md border border-neutral bg-transparent min-h-[50px] placeholder:text-sm"
-                  value={formData.company}
-                  onChange={handleChange}
-                />
-              </div>
-          
-              {/* How did you find us */}
-              <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-medium">How did you find us? *</label>
-                <select
-                  name="source"
-                  className="w-full p-2.5 pr-10 rounded-md border border-neutral bg-transparent min-h-[50px] placeholder:text-sm"
-                  value={formData.source}
-                  onChange={handleChange}
-                  required
-                >
-                  <option value="" disabled hidden className="text-neutral/50 text-sm">Select an option</option>
-                  <option value="social">Social Media</option>
-                  <option value="referral">Referral</option>
-                  <option value="ads">Ads</option>
-                  <option value="search">Google Search</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-          
+              <InputField
+                label="Company Name *"
+                name="company"
+                placeholder="Your company name"
+                value={formData.company}
+                onChange={handleChange}
+              />
+
+              {/* Source */}
+              <SelectField
+                label="How did you find us? *"
+                name="source"
+                options={[
+                  "Social Media",
+                  "Referral",
+                  "Ads",
+                  "Google Search",
+                  "Other",
+                ]}
+                value={formData.source}
+                onChange={handleChange}
+                required
+              />
+
               {/* Budget */}
-              <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-medium">Project Budget</label>
-                <select
-                  name="budget"
-                  className="w-full p-2.5 rounded-md border border-neutral bg-transparent min-h-[50px] placeholder:text-sm"
-                  value={formData.budget}
-                  onChange={handleChange}
-                >
-                  <option value="" disabled hidden className="text-neutral/50">Select a range</option>
-                  <option value="under1k">Under $1,000</option>
-                  <option value="1k-5k">$1,000 – $5,000</option>
-                  <option value="5k-10k">$5,000 – $10,000</option>
-                  <option value="10k+">Above $10,000</option>
-                </select>
-              </div>
+              <SelectField
+                label="Project Budget"
+                name="budget"
+                options={[
+                  "Under $1,000",
+                  "$1,000 – $5,000",
+                  "$5,000 – $10,000",
+                  "Above $10,000",
+                ]}
+                value={formData.budget}
+                onChange={handleChange}
+              />
             </div>
-          
+
             {/* Note */}
             <div className="flex flex-col gap-1.5">
               <label className="text-sm font-medium">Additional Note *</label>
@@ -174,11 +173,9 @@ const GetStarted = ({ isOpen, onClose }) => {
                 required
               />
             </div>
-          
-            {/* Submit CTA */}
+
             <CTAButton text="Send a Message" type="submit" />
           </form>
-          
         )}
       </div>
     </div>
@@ -186,3 +183,50 @@ const GetStarted = ({ isOpen, onClose }) => {
 };
 
 export default GetStarted;
+
+// Reusable Input Field
+const InputField = ({
+  label,
+  name,
+  type = "text",
+  placeholder,
+  value,
+  onChange,
+  required,
+}) => (
+  <div className="flex flex-col gap-1.5">
+    <label className="text-sm font-medium">{label}</label>
+    <input
+      type={type}
+      name={name}
+      placeholder={placeholder}
+      className="w-full p-2.5 rounded-md border border-neutral bg-transparent min-h-[50px] placeholder:text-sm"
+      value={value}
+      onChange={onChange}
+      required={required}
+    />
+  </div>
+);
+
+// Reusable Select Field
+const SelectField = ({ label, name, options, value, onChange, required }) => (
+  <div className="flex flex-col gap-1.5">
+    <label className="text-sm font-medium">{label}</label>
+    <select
+      name={name}
+      value={value}
+      onChange={onChange}
+      className="w-full p-2.5 pr-10 rounded-md border border-neutral bg-transparent min-h-[50px] placeholder:text-sm"
+      required={required}
+    >
+      <option value="" disabled hidden>
+        Select an option
+      </option>
+      {options.map((opt) => (
+        <option key={opt} value={opt.toLowerCase()}>
+          {opt}
+        </option>
+      ))}
+    </select>
+  </div>
+);
