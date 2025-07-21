@@ -1,5 +1,6 @@
 import React from "react";
-import promoVideo from "../assets/videos/Hero-video.mp4"; // update path if needed
+import { Send } from "lucide-react"; // uses lucide-react icon
+import promoVideo from "../assets/videos/Hero-video.mp4";
 
 const EmailCaptureSection = () => {
   return (
@@ -25,19 +26,27 @@ const EmailCaptureSection = () => {
         </h2>
 
         {/* Email Form */}
-        <div className="w-full max-w-[472px] relative py-1 rounded-[100px] border border-neutral bg-transparent">
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="w-full pl-8 pr-44 py-4 bg-transparent text-neutral text-[16px] placeholder:text-neutral focus:outline-none"
-          />
-          <button
-            type="submit"
-            className="absolute top-1 right-1 bottom-1 px-1 sm:px-10 rounded-[40px] text-background bg-neutral text-[16px] hover:bg-primary transition-all duration-200"
-          >
-            Request Demo
-          </button>
-        </div>
+        <form className="w-full max-w-[472px]">
+          {/* Input Group */}
+          <div className="relative py-1 rounded-[100px] border border-neutral bg-transparent">
+            <input
+              id="email"
+              type="email"
+              placeholder="Enter your email"
+              className="w-full pl-8 pr-44 py-4 bg-transparent text-neutral text-[14px] placeholder:text-[13px] placeholder:text-neutral/60 focus:outline-none"
+            />
+            <button
+              type="submit"
+              className="absolute top-1 right-1 bottom-1 px-6 sm:px-10 rounded-[40px] text-background bg-neutral text-[14px] hover:bg-primary transition-all duration-200 flex items-center justify-center gap-2"
+            >
+              {/* On small screens show icon, otherwise show text */}
+              <span className="block sm:hidden">
+                <Send size={18} />
+              </span>
+              <span className="hidden sm:block">Request Demo</span>
+            </button>
+          </div>
+        </form>
       </div>
     </section>
   );

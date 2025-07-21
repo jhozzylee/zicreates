@@ -1,16 +1,17 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ScrollToHash from "./Pages/ScrollToHash";
 import Home from "./Pages/Home";
 import Portfolio from "./Pages/Portfolio";
+import ScrollToTop from "./Pages/ScrollToTop"; // 👈 import it
 import './App.css';
+
 function App() {
   return (
     <BrowserRouter>
-      <ScrollToHash />
+      <ScrollToTop /> {/* 👈 Use it once here */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/porfolio" element={<Portfolio />} />
+        <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
     </BrowserRouter>
   );

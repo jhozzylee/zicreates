@@ -2,18 +2,26 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const ScrollToHash = () => {
-  const { hash } = useLocation();
+  const location = useLocation();
 
   useEffect(() => {
-    if (hash) {
-      const target = document.querySelector(hash);
-      if (target) {
-        setTimeout(() => {
-          target.scrollIntoView({ behavior: "smooth" });
-        }, 100); // delay to ensure DOM is ready
+    const isHome = location.pathname === "/";
+
+    // Only handle scroll if we're on the home page
+    if (isHome) {
+      if (location.hash) {
+        const element = document.querySelector(location.hash);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: "smooth" });
+          }, 100);
+        }
+      } else {
+        // Scroll to top if no hash
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
     }
-  }, [hash]);
+  }, [location]);
 
   return null;
 };

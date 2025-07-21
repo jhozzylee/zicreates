@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import ScrollToHash from "./ScrollToHash";
 import Header from '../components/Header';
 import Hero from "../components/Hero";
 import WhoWeAre from "../components/WhoWeAre";
@@ -15,7 +16,7 @@ const Home = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.hash) {
+    if (location.pathname === '/' && location.hash) {
       const target = document.querySelector(location.hash);
       if (target) {
         setTimeout(() => {
@@ -26,19 +27,21 @@ const Home = () => {
   }, [location]);
 
   return (
-    <div className="scroll-smooth">
-      <Header />
-      <Hero/>
-      <WhoWeAre/>
-      <WhatWeDo/>
-      <OurProcess/>
-      <Results/>
-      <Testimonials/>
-      <PricingSection/>
-      <EmailCaptureSection/>
-      <Footer/>
-
-    </div>
+    <>
+      <ScrollToHash />
+      <div className="scroll-smooth">
+        <Header />
+        <Hero />
+        <WhoWeAre />
+        <WhatWeDo />
+        <OurProcess />
+        <Results />
+        <Testimonials />
+        <PricingSection />
+        <EmailCaptureSection />
+        <Footer />
+      </div>
+    </>
   );
 };
 

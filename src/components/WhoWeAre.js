@@ -84,7 +84,7 @@ const WhoWeAre = () => {
             <p className="text-[16px] mb-6">
               We help businesses build strong, memorable brands through stunning visuals, smart design, and strategic marketing. From branding and motion graphics to UI/UX and digital marketing, we bring your vision to life with creativity and precision.
             </p>
-            <CTAButton text="See what we do" />
+            <CTAButton text="See what we do" link="/portfolio" />
           </div>
         </div>
       </div>

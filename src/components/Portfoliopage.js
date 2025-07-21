@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 const filters = [
   "All",
@@ -6,16 +6,15 @@ const filters = [
   "Websites",
   "Designs",
   "Motion Designs",
-  "Product Designs"
+  "Product Designs",
 ];
 
 const portfolioItems = [
   {
     id: 1,
     type: "Branding",
-    media: "image", // or 'video'
-    src: "/assets/project1.jpg", // replace with real path
-
+    media: "image",
+    src: "/assets/project1.jpg",
     brand: "Luma Store",
     caption: "Brand identity and packaging design.",
   },
@@ -45,7 +44,7 @@ const portfolioItems = [
   },
   {
     id: 5,
-    type: " Designs",
+    type: "Designs",
     media: "video",
     src: "/assets/motion1.mp4",
     brand: "Nova App",
@@ -70,8 +69,8 @@ const portfolioItems = [
   {
     id: 8,
     type: "Branding",
-    media: "image", // or 'video'
-    src: "/assets/project1.jpg", // replace with real path
+    media: "image",
+    src: "/assets/project1.jpg",
     brand: "Luma Store",
     caption: "Brand identity and packaging design.",
   },
@@ -91,51 +90,30 @@ const portfolioItems = [
     brand: "Nova App",
     caption: "App promo motion graphic video.",
   },
-  {
-    id: 11,
-    type: "Websites",
-    media: "image",
-    src: "/assets/project2.jpg",
-    brand: "TechNest",
-    caption: "Website redesign for tech startup.",
-  },
-  {
-    id: 12,
-    type: "Motion Designs",
-    media: "video",
-    src: "/assets/motion1.mp4",
-    brand: "Nova App",
-    caption: "App promo motion graphic video.",
-  },
-  {
-    id: 13,
-    type: "Motion Designs",
-    media: "video",
-    src: "/assets/motion1.mp4",
-    brand: "Nova App",
-    caption: "App promo motion graphic video.",
-  },
-  {
-    id: 14,
-    type: "Websites",
-    media: "image",
-    src: "/assets/project2.jpg",
-    brand: "TechNest",
-    caption: "Website redesign for tech startup.",
-  }
-  // Add more items...
 ];
 
 const Portfoliopage = () => {
   const [activeFilter, setActiveFilter] = useState("All");
+  const buttonRefs = useRef([]);
 
   const filteredItems =
     activeFilter === "All"
       ? portfolioItems
       : portfolioItems.filter((item) => item.type === activeFilter);
 
+  useEffect(() => {
+    const index = filters.indexOf(activeFilter);
+    if (buttonRefs.current[index]) {
+      buttonRefs.current[index].scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+    }
+  }, [activeFilter]);
+
   return (
-    <section id="portfolio" className="bg-background text-neutral py-20 px-4">
+    <section className="bg-background text-neutral py-20 px-4">
       <div className="max-w-[1280px] mx-auto">
         <h2 className="text-2xl font-semibold text-center mb-12">
           Our Creative Footprints
@@ -143,23 +121,21 @@ const Portfoliopage = () => {
 
         {/* Filter Buttons */}
         <div className="overflow-x-auto">
-          <div className="flex justify-center">
-            <div className="inline-flex gap-3 mb-12 whitespace-nowrap px-1">
-              {filters.map((filter) => (
-                <button
-                  key={filter}
-                  onClick={() => setActiveFilter(filter)}
-                  className={`px-8 md:px-10 py-2 rounded-full border text-xs md:text-sm font-light transition-all duration-200 ease-in-out
-                    ${
-                      activeFilter === filter
-                        ? "bg-primary text-background border-primary"
-                        : "border-neutral text-neutral hover:text-primary hover:border-primary hover:bg-[rgba(48,213,200,0.1)]"
-                    }`}
-                >
-                  {filter}
-                </button>
-              ))}
-            </div>
+          <div className="flex justify-start md:justify-center gap-3 mb-12 whitespace-nowrap scroll-smooth px-1">
+            {filters.map((filter, index) => (
+              <button
+                key={filter}
+                ref={(el) => (buttonRefs.current[index] = el)}
+                onClick={() => setActiveFilter(filter)}
+                className={`px-6 md:px-8 py-2 rounded-full border text-xs md:text-sm font-light transition-all duration-200 ease-in-out ${
+                  activeFilter === filter
+                    ? "bg-primary text-background border-primary"
+                    : "border-neutral text-neutral hover:text-primary hover:border-primary hover:bg-primary/10"
+                }`}
+              >
+                {filter}
+              </button>
+            ))}
           </div>
         </div>
 
@@ -195,7 +171,6 @@ const Portfoliopage = () => {
           ))}
         </div>
       </div>
-      
     </section>
   );
 };
