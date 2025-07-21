@@ -30,7 +30,7 @@ const BookCall = ({ isOpen, onRequestClose }) => {
           url="https://calendly.com/jzidah/30min"
           styles={{ height: '100%', borderRadius: '8px' }}
           pageSettings={{
-            primaryColor: '#30d5c8',
+            primaryColor: '#F0F8FF',
             hideEventTypeDetails: true,
             backgroundColor: '#0F0F0F',
             textColor: '#F0F8FF'

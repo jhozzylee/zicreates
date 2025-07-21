@@ -41,7 +41,7 @@ const GetStarted = ({ isOpen, onClose }) => {
     e.preventDefault();
     if (!formData.note.trim()) return;
   
-    const response = await fetch("https://script.google.com/macros/s/AKfycbzwJ5S578rcTW__nZIGbx9J6nr5uu2d0De1OpRO4QP17y86FCCTUi_b08dt2oNllk7d/exec", {
+    const response = await fetch("https://sheetdb.io/api/v1/44eyixm95etfh", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
