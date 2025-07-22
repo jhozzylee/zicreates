@@ -23,7 +23,7 @@ const OurProcess = () => {
   );
 
   return (
-    <section id= "process" className="bg-background text-neutral py-20 px-4">
+    <section id= "process" className="bg-background text-neutral py-4 px-4">
       <div className="max-w-[1280px] mx-auto">
         {/* Heading */}
         <h2 className="text-2xl font-semibold mb-16 text-center md:text-right">

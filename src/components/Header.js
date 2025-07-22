@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CTAButton from "./CTAButton";
-import BookCallModal from "./GetStarted"; // Make sure this component is created
+import GetStarted from "./GetStarted"; // ✅ correct name
 import logo from "../assets/images/Logo.svg";
 
 const Header = () => {
@@ -82,9 +82,9 @@ const Header = () => {
         )}
       </header>
 
-      {/* Modal Section */}
+      {/* ✅ Render GetStarted Modal */}
       {showModal && (
-        <BookCallModal isOpen={showModal} onClose={() => setShowModal(false)} />
+        <GetStarted isOpen={showModal} onClose={() => setShowModal(false)} />
       )}
     </>
   );

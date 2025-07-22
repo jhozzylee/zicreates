@@ -58,7 +58,7 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="bg-background text-neutral py-20 px-4 relative group overflow-hidden"
+      className="bg-background text-neutral py-10 px-4 relative group overflow-hidden"
     >
       {/* ✅ Force Tailwind to keep dynamic classes */}
       <div className="hidden">

@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
+import Modal from "react-modal";
 import CTAButton from "./CTAButton";
+
+Modal.setAppElement("#root"); // Important for accessibility
 
 const GetStarted = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
@@ -45,7 +48,7 @@ const GetStarted = ({ isOpen, onClose }) => {
       const response = await fetch("https://sheetdb.io/api/v1/44eyixm95etfh", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ data: formData }), // ✅ Nesting inside `data`
+        body: JSON.stringify({ data: formData }),
       });
 
       const result = await response.json();
@@ -55,7 +58,7 @@ const GetStarted = ({ isOpen, onClose }) => {
         setSubmitted(true);
         setTimeout(() => {
           setSubmitted(false);
-          onClose();
+          onClose(); // ✅ Close modal after 3 seconds
         }, 3000);
       } else {
         alert("❌ Failed to send message. Try again.");
@@ -66,106 +69,108 @@ const GetStarted = ({ isOpen, onClose }) => {
     }
   };
 
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 z-50 bg-background/50 flex items-center justify-center px-4">
-      <div className="bg-background border border-neutral/20 text-neutral w-full max-w-screen-sm md:max-w-screen-md lg:max-w-[1024px] max-h-screen overflow-y-auto rounded-[8px] p-6 sm:p-8 md:p-12 relative">
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-neutral hover:opacity-70 text-2xl"
-        >
-          ×
-        </button>
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onClose}
+      contentLabel="Get Started Form"
+      overlayClassName="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center"
+      className="bg-background border border-neutral/20 text-neutral w-full max-w-screen-md max-h-screen overflow-y-auto rounded-[8px] p-6 sm:p-8 md:p-12 relative"
+    >
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 text-neutral hover:opacity-70 text-2xl"
+      >
+        ×
+      </button>
 
-        <h2 className="text-[28px] md:text-[32px] font-semibold mb-4">
-          In need of creative?
-        </h2>
+      <h2 className="text-[28px] md:text-[32px] font-semibold mb-4">
+        In need of creative?
+      </h2>
 
-        {submitted ? (
-          <p className="text-neutral font-medium">
-            ✅ Your message was sent successfully. You’ll hear from us within 24 hours.
-          </p>
-        ) : (
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <InputField
-                label="Full Name *"
-                name="fullName"
-                placeholder="Enter your name"
-                value={formData.fullName}
-                onChange={handleChange}
-                required
-              />
-              <InputField
-                label="Email *"
-                name="email"
-                type="email"
-                placeholder="Enter your email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-              <InputField
-                label="Phone Number"
-                name="contact"
-                placeholder="+1 (234) 567 8901"
-                value={formData.contact}
-                onChange={handleChange}
-                required
-              />
-              <InputField
-                label="Company Name *"
-                name="company"
-                placeholder="Your company name"
-                value={formData.company}
-                onChange={handleChange}
-              />
-              <SelectField
-                label="How did you find us? *"
-                name="source"
-                options={[
-                  "Social Media",
-                  "Referral",
-                  "Ads",
-                  "Google Search",
-                  "Other",
-                ]}
-                value={formData.source}
-                onChange={handleChange}
-                required
-              />
-              <SelectField
-                label="Project Budget"
-                name="budget"
-                options={[
-                  "Under $1,000",
-                  "$1,000 – $5,000",
-                  "$5,000 – $10,000",
-                  "Above $10,000",
-                ]}
-                value={formData.budget}
-                onChange={handleChange}
-              />
-            </div>
+      {submitted ? (
+        <p className="text-neutral font-medium">
+          ✅ Your message was sent successfully. You’ll hear from us within 24 hours.
+        </p>
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <InputField
+              label="Full Name *"
+              name="fullName"
+              placeholder="Enter your name"
+              value={formData.fullName}
+              onChange={handleChange}
+              required
+            />
+            <InputField
+              label="Email *"
+              name="email"
+              type="email"
+              placeholder="Enter your email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+            <InputField
+              label="Phone Number"
+              name="contact"
+              placeholder="+1 (234) 567 8901"
+              value={formData.contact}
+              onChange={handleChange}
+              required
+            />
+            <InputField
+              label="Company Name *"
+              name="company"
+              placeholder="Your company name"
+              value={formData.company}
+              onChange={handleChange}
+            />
+            <SelectField
+              label="How did you find us? *"
+              name="source"
+              options={[
+                "Social Media",
+                "Referral",
+                "Ads",
+                "Google Search",
+                "Other",
+              ]}
+              value={formData.source}
+              onChange={handleChange}
+              required
+            />
+            <SelectField
+              label="Project Budget"
+              name="budget"
+              options={[
+                "Under $1,000",
+                "$1,000 – $5,000",
+                "$5,000 – $10,000",
+                "Above $10,000",
+              ]}
+              value={formData.budget}
+              onChange={handleChange}
+            />
+          </div>
 
-            <div className="flex flex-col gap-1.5">
-              <label className="text-sm font-medium">Additional Note *</label>
-              <textarea
-                name="note"
-                placeholder="Tell us about your project"
-                className="w-full p-2.5 rounded-md border border-neutral bg-transparent min-h-[150px] placeholder:text-sm"
-                value={formData.note}
-                onChange={handleChange}
-                required
-              />
-            </div>
+          <div className="flex flex-col gap-1.5">
+            <label className="text-sm font-medium">Additional Note *</label>
+            <textarea
+              name="note"
+              placeholder="Tell us about your project"
+              className="w-full p-2.5 rounded-md border border-neutral bg-transparent min-h-[150px] placeholder:text-sm"
+              value={formData.note}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-            <CTAButton text="Send a Message" type="submit" />
-          </form>
-        )}
-      </div>
-    </div>
+          <CTAButton text="Send a Message" type="submit" />
+        </form>
+      )}
+    </Modal>
   );
 };
 

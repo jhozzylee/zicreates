@@ -25,7 +25,7 @@ const WhatWeDo = () => {
   };
 
   return (
-    <section id="services" className="bg-background text-neutral py-20 px-4 pt-20 scroll-mt-20">
+    <section id="services" className="bg-background text-neutral py-10 px-4 pt-8 scroll-mt-20">
       <div className="max-w-[1280px] mx-auto">
         <h2 className="text-xl md:text-2xl font-bold mb-12 text-left">
           What We Do for Brands Like Yours

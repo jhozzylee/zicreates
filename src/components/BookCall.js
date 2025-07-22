@@ -4,11 +4,11 @@ import { InlineWidget } from 'react-calendly';
 
 Modal.setAppElement('#root');
 
-const BookCall = ({ isOpen, onRequestClose }) => {
+const BookCall = ({ isOpen, onClose }) => {
   return (
     <Modal
       isOpen={isOpen}
-      onRequestClose={onRequestClose}
+      onRequestClose={onClose} // ✅ Matches prop passed from Home.js
       contentLabel="Book a Call"
       overlayClassName="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center"
       className="bg-background max-w-4xl w-full rounded-[8px] p-4 md:p-8 max-h-[95vh] overflow-y-auto border border-neutral/20"
@@ -18,7 +18,7 @@ const BookCall = ({ isOpen, onRequestClose }) => {
           Let’s Make Something Great Together
         </h2>
         <button
-          onClick={onRequestClose}
+          onClick={onClose} // ✅ Close button wired up
           className="text-neutral hover:text-primary text-2xl"
         >
           &times;

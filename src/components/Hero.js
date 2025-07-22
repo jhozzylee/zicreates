@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import CTAButton from "./CTAButton";
-import bgImage from "../assets/images/Hero-Grid.png";
+import bgImage from "../assets/images/Hero-Grid.webp";
 import heroVideo from "../assets/videos/Hero-video.mp4";
-import BookCall from "./BookCall";
 import Player from "@vimeo/player";
 
 import client1 from "../assets/images/Crestville.png";
@@ -12,15 +11,14 @@ import client4 from "../assets/images/Webshapers.png";
 import client5 from "../assets/images/Emcok.png";
 import client6 from "../assets/images/Uplift.png";
 
-const Hero = () => {
+const Hero = ({ onOpenBookCall }) => {
   const [isOpen, setOpen] = useState(false);
-  const [isBookCallOpen, setIsBookCallOpen] = useState(false);
   const iframeRef = useRef(null);
 
   useEffect(() => {
     if (isOpen && iframeRef.current) {
       const player = new Player(iframeRef.current);
-      player.setVolume(0); // autoplay muted
+      player.setVolume(0);
 
       const handleUnmute = () => {
         player.setVolume(1);
@@ -76,7 +74,7 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-[40px]">
-            <CTAButton text="Book a Call" onClick={() => setIsBookCallOpen(true)} />
+            <CTAButton text="Book a Call" onClick={onOpenBookCall} />
             <button
               onClick={() => setOpen(true)}
               className="group flex items-center text-neutral px-8 py-2 rounded-full border border-transparent hover:border-primary hover:text-primary transition-all duration-200"
@@ -142,7 +140,7 @@ const Hero = () => {
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen
-              className="rounded-lg w-full h-full cursor-pointer"
+              className="rounded-lg w-full h-full cursor-pointer border border-neutral/20"
             ></iframe>
             <button
               className="absolute top-2 right-2 text-white text-xl bg-black/60 rounded-full w-10 h-10 flex items-center justify-center"
@@ -153,12 +151,6 @@ const Hero = () => {
           </div>
         </div>
       )}
-
-      {/* Book Call Modal */}
-      <BookCall
-        isOpen={isBookCallOpen}
-        onRequestClose={() => setIsBookCallOpen(false)}
-      />
     </section>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import ScrollToHash from "./ScrollToHash";
 import Header from '../components/Header';
@@ -9,11 +9,14 @@ import OurProcess from "../components/OurProcess";
 import Results from "../components/Results";
 import Testimonials from "../components/Testimonials";
 import PricingSection from "../components/PricingSection";
+import ExtraSection from "../components/ExtraSection";
 import EmailCaptureSection from "../components/EmailCaptureSection";
 import Footer from "../components/Footer";
+import BookCall from '../components/BookCall'; // ✅ The modal
 
 const Home = () => {
   const location = useLocation();
+  const [isBookCallOpen, setIsBookCallOpen] = useState(false);
 
   useEffect(() => {
     if (location.pathname === '/' && location.hash) {
@@ -31,16 +34,23 @@ const Home = () => {
       <ScrollToHash />
       <div className="scroll-smooth">
         <Header />
-        <Hero />
+        <Hero onOpenBookCall={() => setIsBookCallOpen(true)} /> {/* ✅ Optional */}
         <WhoWeAre />
         <WhatWeDo />
         <OurProcess />
         <Results />
         <Testimonials />
         <PricingSection />
+        <ExtraSection onOpenBookCall={() => setIsBookCallOpen(true)} /> {/* ✅ Connected */}
         <EmailCaptureSection />
         <Footer />
       </div>
+
+      {/* ✅ Modal at root level */}
+      <BookCall
+        isOpen={isBookCallOpen}
+        onClose={() => setIsBookCallOpen(false)}
+      />
     </>
   );
 };

@@ -9,7 +9,7 @@ const WhoWeAre = () => {
   return (
     <section
       id="expertise"
-      className="bg-background text-neutral py-20 px-4 pt-20 scroll-mt-20"
+      className="bg-background text-neutral py-20 px-4 pt-16 scroll-mt-20"
     >
       <div className="max-w-[1280px] mx-auto">
         {/* Top Text */}
@@ -97,7 +97,7 @@ const WhoWeAre = () => {
               src={brandShowcase}
               autoPlay
               controls
-              className="w-full h-full rounded-lg"
+              className="w-full h-full rounded-md"
             />
             <button
               className="absolute top-2 right-2 text-white text-xl bg-black/60 rounded-full w-10 h-10 flex items-center justify-center"
