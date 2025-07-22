@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import CTAButton from "./CTAButton";
 import bgImage from "../assets/images/Hero-Grid.png";
 import heroVideo from "../assets/videos/Hero-video.mp4";
-import BookCall from './BookCall';
+import BookCall from "./BookCall";
 import Player from "@vimeo/player";
 
 import client1 from "../assets/images/Crestville.png";
@@ -17,15 +17,13 @@ const Hero = () => {
   const [isBookCallOpen, setIsBookCallOpen] = useState(false);
   const iframeRef = useRef(null);
 
-  // Unmute on first click inside iframe
   useEffect(() => {
     if (isOpen && iframeRef.current) {
       const player = new Player(iframeRef.current);
-
-      player.setVolume(0); // autoplay starts muted
+      player.setVolume(0); // autoplay muted
 
       const handleUnmute = () => {
-        player.setVolume(1); // unmute when clicked
+        player.setVolume(1);
         iframeRef.current.removeEventListener("click", handleUnmute);
       };
 
@@ -43,33 +41,31 @@ const Hero = () => {
             <span className="text-primary">Vision</span> into a <span className="text-primary">Powerful Brand</span>
           </h1>
 
-          {/* Mobile Video Preview */}
+          {/* Mobile Video */}
           <div className="block lg:hidden mb-2">
             <div className="relative max-w-[552px] mx-auto rounded-xl overflow-hidden shadow-lg">
-              <img
-                src={bgImage}
-                alt="Video cover"
-                className="w-full h-auto object-cover"
-              />
-              <div className="absolute top-10 left-6 sm:top-16 sm:left-10 md:top-[120px] md:left-[40px] lg:top-[154px] lg:left-[140px] w-[306px] flex justify-center opacity-100">
-                <video
-                  className="rounded-[8px]"
-                  src={heroVideo}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                />
-                <button
-                  onClick={() => setOpen(true)}
-                  className="absolute inset-0 flex items-center justify-center z-20 hover:scale-105 transition-transform duration-300"
-                >
-                  <svg className="absolute w-8 h-8" viewBox="0 0 100 100" fill="none">
-                    <circle cx="50" cy="50" r="48" fill="rgba(15, 15, 15, 0.3)" />
-                    <path d="M40 30L70 50L40 70V30Z" fill="#30D5C8" />
-                  </svg>
-                </button>
+              <img src={bgImage} alt="Video cover" className="w-full h-auto object-cover" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex justify-center z-10">
+                <div style={{ width: "clamp(176px, 55vw, 284px)" }} className="w-full">
+                  <video
+                    className="w-full h-auto rounded-[8px]"
+                    src={heroVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+                </div>
               </div>
+              <button
+                onClick={() => setOpen(true)}
+                className="absolute inset-0 flex items-center justify-center z-20 hover:scale-105 transition-transform duration-300"
+              >
+                <svg className="w-10 h-10" viewBox="0 0 100 100" fill="none">
+                  <circle cx="50" cy="50" r="48" fill="rgba(15, 15, 15, 0.3)" />
+                  <path d="M40 30L70 50L40 70V30Z" fill="#30D5C8" />
+                </svg>
+              </button>
             </div>
           </div>
 
@@ -91,29 +87,31 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Desktop Video Preview */}
+        {/* Desktop Video */}
         <div className="hidden lg:flex lg:w-1/2 items-center justify-end">
           <div className="relative max-w-[552px] rounded-xl overflow-hidden shadow-lg">
             <img src={bgImage} alt="Video cover" className="w-full h-auto object-cover" />
-            <div className="absolute top-10 left-6 sm:top-16 sm:left-10 md:top-[120px] md:left-[40px] lg:top-[154px] lg:left-[140px] w-[306px] flex justify-center opacity-100">
-              <video
-                className="rounded-[8px]"
-                src={heroVideo}
-                autoPlay
-                loop
-                muted
-                playsInline
-              />
-              <button
-                onClick={() => setOpen(true)}
-                className="absolute inset-0 flex items-center justify-center z-20 hover:scale-105 transition-transform duration-300"
-              >
-                <svg className="absolute w-8 h-8" viewBox="0 0 100 100" fill="none">
-                  <circle cx="50" cy="50" r="48" fill="rgba(15, 15, 15, 0.3)" />
-                  <path d="M40 30L70 50L40 70V30Z" fill="#30D5C8" />
-                </svg>
-              </button>
+            <div className="absolute inset-0 flex justify-center items-center z-10">
+              <div style={{ width: "clamp(192px, 26vw, 306px)" }} className="w-full">
+                <video
+                  className="w-full h-auto rounded-[8px]"
+                  src={heroVideo}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
+              </div>
             </div>
+            <button
+              onClick={() => setOpen(true)}
+              className="absolute inset-0 flex items-center justify-center z-20 hover:scale-105 transition-transform duration-300"
+            >
+              <svg className="w-10 h-10" viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="48" fill="rgba(15, 15, 15, 0.3)" />
+                <path d="M40 30L70 50L40 70V30Z" fill="#30D5C8" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
@@ -131,14 +129,14 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* ▶ Vimeo Modal Embed */}
+      {/* Vimeo Modal */}
       {isOpen && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-80 flex justify-center items-center px-4">
           <div className="relative w-full max-w-[800px] aspect-video">
             <iframe
               ref={iframeRef}
               src="https://player.vimeo.com/video/1102249418?autoplay=1"
-               title="Our Works"
+              title="Our Works"
               width="100%"
               height="100%"
               frameBorder="0"
@@ -156,9 +154,9 @@ const Hero = () => {
         </div>
       )}
 
-      {/* 📞 Book Call Modal */}
+      {/* Book Call Modal */}
       <BookCall
-        isOpen={isBookCallOpen}s
+        isOpen={isBookCallOpen}
         onRequestClose={() => setIsBookCallOpen(false)}
       />
     </section>
