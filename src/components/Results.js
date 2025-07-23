@@ -18,45 +18,53 @@ const Results = () => {
         </h2>
 
         {/* Grid */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-6">
           {/* Left Column */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-2 sm:gap-3 md:gap-6">
             <img
               src={img1}
-              alt="Project 1" loading="lazy"
-              className="rounded-[12px] object-cover w-full h-[60vw] max-h-[680px] aspect-[3/4] hover:scale-105 transition-transform duration-300"
+              alt="Project 1"
+              loading="lazy"
+              className="rounded-[8px] object-cover w-full hover:scale-105 transition-transform duration-300"
             />
             <img
               src={img3}
-              alt="Project 3" loading="lazy"
-              className="rounded-[12px] object-cover w-full h-[28vw] max-h-[324px] aspect-[3/2] hover:scale-105 transition-transform duration-300"
+              alt="Project 3"
+              loading="lazy"
+              className="rounded-[8px] object-cover w-full hover:scale-105 transition-transform duration-300"
             />
           </div>
 
           {/* Right Column */}
-          <div className="flex flex-col gap-4 md:gap-6 lg:gap-8">
-            <img
-              src={img2a}
-              alt="Project 2a" loading="lazy"
-              className="rounded-[12px] object-cover w-full h-[28vw] max-h-[324px] aspect-[3/2] hover:scale-105 transition-transform duration-300"
-            />
-            <img
-              src={img2b}
-              alt="Project 2b" loading="lazy"
-              className="rounded-[12px] object-cover w-full h-[28vw] max-h-[324px] aspect-[3/2] hover:scale-105 transition-transform duration-300"
-            />
+          <div className="flex flex-col gap-2 sm:gap-3 md:gap-6">
+            <div className="flex flex-col gap-2 sm:gap-3 md:gap-6">
+              <img
+                src={img2a}
+                alt="Project 2a"
+                loading="lazy"
+                className="rounded-[8px] object-cover w-full hover:scale-105 transition-transform duration-300"
+              />
+              <img
+                src={img2b}
+                alt="Project 2b"
+                loading="lazy"
+                className="rounded-[8px] object-cover w-full hover:scale-105 transition-transform duration-300"
+              />
+            </div>
 
             {/* Bottom Grid */}
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-6">
               <img
                 src={img4a}
-                alt="Project 4a" loading="lazy"
-                className="rounded-[12px] object-cover w-full h-[28vw] max-h-[324px] aspect-[3/2] hover:scale-105 transition-transform duration-300"
+                alt="Project 4a"
+                loading="lazy"
+                className="rounded-[8px] object-cover w-full hover:scale-105 transition-transform duration-300"
               />
               <img
                 src={img4b}
-                alt="Project 4b" loading="lazy"
-                className="rounded-[12px] object-cover w-full h-[28vw] max-h-[324px] aspect-[3/2] hover:scale-105 transition-transform duration-300"
+                alt="Project 4b"
+                loading="lazy"
+                className="rounded-[8px] object-cover w-full hover:scale-105 transition-transform duration-300"
               />
             </div>
           </div>
