@@ -32,7 +32,7 @@ const Hero = ({ onOpenBookCall }) => {
   return (
     <section id="hero" className="bg-background text-neutral pt-24 pb-2">
       <div className="max-w-[1280px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-16">
-        {/* Left Side */}
+        {/* Left */}
         <div className="lg:w-1/2 text-center lg:text-left max-w-[522px]">
           <h1 className="text-[36px] sm:text-[44px] lg:text-[56px] font-bold leading-tight mb-6">
             Transform your<br />
@@ -43,8 +43,8 @@ const Hero = ({ onOpenBookCall }) => {
           <div className="block lg:hidden mb-2">
             <div className="relative max-w-[552px] mx-auto rounded-xl overflow-hidden shadow-lg">
               <img src={bgImage} alt="Video cover" className="w-full h-auto object-cover" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex justify-center z-10">
-                <div style={{ width: "clamp(176px, 55vw, 284px)" }} className="w-full">
+              <div className="absolute inset-0 flex justify-center items-center z-10">
+                <div className="relative" style={{ width: "clamp(176px, 55vw, 284px)" }}>
                   <video
                     className="w-full h-auto rounded-[8px]"
                     src={heroVideo}
@@ -53,17 +53,17 @@ const Hero = ({ onOpenBookCall }) => {
                     muted
                     playsInline
                   />
+                  <button
+                    onClick={() => setOpen(true)}
+                    className="absolute inset-0 flex items-center justify-center hover:scale-105 transition-transform duration-300"
+                  >
+                    <svg className="w-10 h-10" viewBox="0 0 100 100" fill="none">
+                      <circle cx="50" cy="50" r="48" fill="rgba(15, 15, 15, 0.3)" />
+                      <path d="M40 30L70 50L40 70V30Z" fill="#30D5C8" />
+                    </svg>
+                  </button>
                 </div>
               </div>
-              <button
-                onClick={() => setOpen(true)}
-                className="absolute inset-0 flex items-center justify-center z-20 hover:scale-105 transition-transform duration-300"
-              >
-                <svg className="w-10 h-10" viewBox="0 0 100 100" fill="none">
-                  <circle cx="50" cy="50" r="48" fill="rgba(15, 15, 15, 0.3)" />
-                  <path d="M40 30L70 50L40 70V30Z" fill="#30D5C8" />
-                </svg>
-              </button>
             </div>
           </div>
 
@@ -90,7 +90,7 @@ const Hero = ({ onOpenBookCall }) => {
           <div className="relative max-w-[552px] rounded-xl overflow-hidden shadow-lg">
             <img src={bgImage} alt="Video cover" className="w-full h-auto object-cover" />
             <div className="absolute inset-0 flex justify-center items-center z-10">
-              <div style={{ width: "clamp(192px, 26vw, 306px)" }} className="w-full">
+              <div className="relative" style={{ width: "clamp(192px, 26vw, 306px)" }}>
                 <video
                   className="w-full h-auto rounded-[8px]"
                   src={heroVideo}
@@ -99,17 +99,17 @@ const Hero = ({ onOpenBookCall }) => {
                   muted
                   playsInline
                 />
+                <button
+                  onClick={() => setOpen(true)}
+                  className="absolute inset-0 flex items-center justify-center hover:scale-105 transition-transform duration-300"
+                >
+                  <svg className="w-10 h-10" viewBox="0 0 100 100" fill="none">
+                    <circle cx="50" cy="50" r="48" fill="rgba(15, 15, 15, 0.3)" />
+                    <path d="M40 30L70 50L40 70V30Z" fill="#30D5C8" />
+                  </svg>
+                </button>
               </div>
             </div>
-            <button
-              onClick={() => setOpen(true)}
-              className="absolute inset-0 flex items-center justify-center z-20 hover:scale-105 transition-transform duration-300"
-            >
-              <svg className="w-10 h-10" viewBox="0 0 100 100" fill="none">
-                <circle cx="50" cy="50" r="48" fill="rgba(15, 15, 15, 0.3)" />
-                <path d="M40 30L70 50L40 70V30Z" fill="#30D5C8" />
-              </svg>
-            </button>
           </div>
         </div>
       </div>
