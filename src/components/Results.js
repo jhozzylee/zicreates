@@ -1,12 +1,12 @@
 import React from "react";
 
 import CTAButton from "./CTAButton";
-import img1 from "../assets/images/result01.png";
-import img2a from "../assets/images/result02.png";
-import img2b from "../assets/images/result03.png";
-import img3 from "../assets/images/result04.png";
-import img4a from "../assets/images/result05.png";
-import img4b from "../assets/images/result06.png";
+import img1 from "../assets/images/result01.webp";
+import img2a from "../assets/images/result03.webp";
+import img2b from "../assets/images/result02.webp";
+import img3 from "../assets/images/result04.webp";
+import img4a from "../assets/images/result05.webp";
+import img4b from "../assets/images/result06.webp";
 
 const Results = () => {
   return (

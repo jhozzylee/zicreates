@@ -118,12 +118,12 @@ const Hero = ({ onOpenBookCall }) => {
       <div className="mt-20 px-4 text-center">
         <p className="text-[18px] font-normal mb-8">A few of our clients</p>
         <div className="flex flex-wrap justify-center items-center gap-6 max-w-[1280px] mx-auto">
-          <img src={client1} alt="Client 1" className="h-6 object-contain" />
-          <img src={client2} alt="Client 2" className="h-6 object-contain" />
-          <img src={client3} alt="Client 3" className="h-6 object-contain" />
-          <img src={client4} alt="Client 4" className="h-6 object-contain" />
-          <img src={client5} alt="Client 5" className="h-6 object-contain" />
-          <img src={client6} alt="Client 6" className="h-6 object-contain" />
+          <img src={client1} alt="Client 1" className="h-6 sm:h-8 md:h-8 lg:h-10 object-contain" />
+          <img src={client2} alt="Client 2" className="h-6 sm:h-8 md:h-8 lg:h-10 object-contain" />
+          <img src={client3} alt="Client 3" className="h-6 sm:h-8 md:h-8 lg:h-10 object-contain" />
+          <img src={client4} alt="Client 4" className="h-6 sm:h-8 md:h-8 lg:h-10 object-contain" />
+          <img src={client5} alt="Client 5" className="h-6 sm:h-8 md:h-8 lg:h-10 object-contain" />
+          <img src={client6} alt="Client 6" className="h-6 sm:h-8 md:h-8 lg:h-10 object-contain" />
         </div>
       </div>
 

@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
+import { portfolioItems } from "./portfolioData";
+import PortfolioModal from "./PortfolioModal"; // ✅ Imported the modal
 
 const filters = [
   "All",
@@ -9,91 +11,9 @@ const filters = [
   "Product Designs",
 ];
 
-const portfolioItems = [
-  {
-    id: 1,
-    type: "Branding",
-    media: "image",
-    src: "/assets/project1.jpg",
-    brand: "Luma Store",
-    caption: "Brand identity and packaging design.",
-  },
-  {
-    id: 2,
-    type: "Websites",
-    media: "image",
-    src: "/assets/project2.jpg",
-    brand: "TechNest",
-    caption: "Website redesign for tech startup.",
-  },
-  {
-    id: 3,
-    type: "Motion Designs",
-    media: "video",
-    src: "/assets/motion1.mp4",
-    brand: "Nova App",
-    caption: "App promo motion graphic video.",
-  },
-  {
-    id: 4,
-    type: "Product Designs",
-    media: "image",
-    src: "/assets/project2.jpg",
-    brand: "TechNest",
-    caption: "Website redesign for tech startup.",
-  },
-  {
-    id: 5,
-    type: "Designs",
-    media: "video",
-    src: "/assets/motion1.mp4",
-    brand: "Nova App",
-    caption: "App promo motion graphic video.",
-  },
-  {
-    id: 6,
-    type: "Motion Designs",
-    media: "video",
-    src: "/assets/motion1.mp4",
-    brand: "Nova App",
-    caption: "App promo motion graphic video.",
-  },
-  {
-    id: 7,
-    type: "Designs",
-    media: "image",
-    src: "/assets/project2.jpg",
-    brand: "TechNest",
-    caption: "Website redesign for tech startup.",
-  },
-  {
-    id: 8,
-    type: "Branding",
-    media: "image",
-    src: "/assets/project1.jpg",
-    brand: "Luma Store",
-    caption: "Brand identity and packaging design.",
-  },
-  {
-    id: 9,
-    type: "Websites",
-    media: "image",
-    src: "/assets/project2.jpg",
-    brand: "TechNest",
-    caption: "Website redesign for tech startup.",
-  },
-  {
-    id: 10,
-    type: "Motion Designs",
-    media: "video",
-    src: "/assets/motion1.mp4",
-    brand: "Nova App",
-    caption: "App promo motion graphic video.",
-  },
-];
-
 const Portfoliopage = () => {
   const [activeFilter, setActiveFilter] = useState("All");
+  const [selectedProject, setSelectedProject] = useState(null);
   const buttonRefs = useRef([]);
 
   const filteredItems =
@@ -144,17 +64,21 @@ const Portfoliopage = () => {
           {filteredItems.map((item) => (
             <div
               key={item.id}
-              className="bg-[#1A1A1A] rounded-2xl overflow-hidden shadow-lg hover:scale-[1.02] transition-transform"
+              className="bg-[#1A1A1A] rounded-2xl overflow-hidden shadow-lg hover:scale-[1.02] transition-transform cursor-pointer"
+              onClick={() => setSelectedProject(item)}
             >
               <div className="aspect-video bg-black">
                 {item.media === "video" ? (
                   <video
-                    className="w-full h-full object-cover"
                     src={item.src}
-                    controls
+                    className="w-full h-full object-cover"
+                    muted
+                    loop
+                    playsInline
                   />
                 ) : (
                   <img
+                    loading="lazy"
                     className="w-full h-full object-cover"
                     src={item.src}
                     alt={item.brand}
@@ -171,6 +95,15 @@ const Portfoliopage = () => {
           ))}
         </div>
       </div>
+
+      {/* 🔗 Open Modal if a project is selected */}
+      {selectedProject && (
+        <PortfolioModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+          setProject={setSelectedProject} // ✅ Enables related projects to update the modal
+        />
+      )}
     </section>
   );
 };
