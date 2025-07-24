@@ -15,13 +15,13 @@ const PortfolioModal = ({ project, onClose, setProject }) => {
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-2xl text-neutral hover:text-primary z-10"
+          className="absolute top-4 right-4 text-2xl text-nuted hover:text-primary z-10"
         >
           &times;
         </button>
 
         {/* 🟡 Mobile Video Full Width */}
-        <div className="md:hidden w-full">
+        <div className="md:hidden w-full pt-20">
           <div className="aspect-video w-full">
             {project.videoUrl ? (
               <iframe
@@ -34,7 +34,7 @@ const PortfolioModal = ({ project, onClose, setProject }) => {
               ></iframe>
             ) : (
               <img
-                src={project.src}
+                src={project.thumbnail}
                 alt={project.brand}
                 className="w-full h-full object-cover"
               />

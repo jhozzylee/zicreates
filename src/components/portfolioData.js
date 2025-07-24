@@ -18,7 +18,7 @@ export const portfolioItems = [
         },
       ],
       involvement: ["Brand Strategy", "Social Media Rebranding ", "Visual Identity"],
-      src: "/assets/ki-computing2.webp",
+      src: "/assets/ki-computing2.png",
       thumbnail: "/assets/Ki-computing.webp",
       related: [2, 4, 8],
     },
@@ -71,39 +71,47 @@ export const portfolioItems = [
     {
       id: 4,
       type: "Product Designs",
-      brand: "TechNest",
-      category: "Product Landing Page",
-      caption: "Product design for SaaS product.",
+      brand: "DripCircle",
+      category: "Product Design",
+      caption: "Product design for Streetwears.",
       description:
-        "We created a conversion-focused product page for TechNest’s new analytics tool. Designed to inform and convert.",
+        "This UI/UX project reimagines a next-gen eCommerce platform built around streetwear culture and modern fashion trends. Beyond just shopping, the platform creates a lifestyle hub where users can discover new styles, interact with like-minded fashion lovers, and engage in community-driven features.",
       summaryHighlights: [
         {
-          title: "Conversion focused",
-          text: "Clear CTA placement and visual hierarchy",
+          title: "Visual Aesthetic",
+          text: "sleek, trendy interface that mirrors the energy of street fashion",
         },
+        {
+            title: "Features",
+            text: "bold typography, high-contrast palettes, and dynamic layouts",
+          },
       ],
       involvement: ["Product UI", "Landing Page", "UX Design"],
-      videoUrl: "https://player.vimeo.com/video/998877665",
-      thumbnail: "/assets/project2.jpg",
+      videoUrl: "https://player.vimeo.com/video/1104243216?autoplay=1",
+      src: "/assets/DripCircle.webp",
       related: [2, 9],
     },
     {
       id: 5,
       type: "Designs",
-      brand: "Nova App",
-      category: "Promo Snippets",
-      caption: "App promo motion graphic video.",
+      brand: "Black is Beautiful",
+      category: "Visual Concept",
+      caption: " Celebration of culture",
       description:
-        "Short cutdowns of the full Nova promo video tailored for TikTok and Instagram Reels.",
+        "Black is Beautiful is a visual design project celebrating the richness, resilience, and radiance of Black identity. Through bold typography, symbolic visuals, and intentional color use, Zi Creates crafted a piece that goes beyond aesthetics—serving as both a tribute and a visual affirmation of Black excellence, pride, and unity.",
       summaryHighlights: [
         {
-          title: "Format",
-          text: "Vertical 9:16 ratio for mobile-first experience",
+          title: "Design Aesthetic",
+          text: "Strong contrast, Afrocentric elements, and modern textures",
         },
+        {
+            title: "Message & Meaning",
+            text: "A design-led affirmation that beauty is diverse, unapologetic, and rooted in heritage",
+          },
       ],
-      involvement: ["Video Editing", "Reformatting", "Platform Optimization"],
-      videoUrl: "https://player.vimeo.com/video/112233445",
-      thumbnail: "/assets/motion1-thumb.jpg",
+      involvement: ["Visual Concept & Art Direction", "Typography Design & Layout", "Color Theory Aligned with Cultural Depth"],
+      src: "/assets/Black_Is_Beautiful1.webp",
+      thumbnail: "/assets/Black_Is_Beautiful.webp",
       related: [3],
     },
     {
@@ -132,20 +140,20 @@ export const portfolioItems = [
     {
       id: 7,
       type: "Designs",
-      brand: "TechNest",
+      brand: "Gcomic",
       category: "Design Mockups",
       caption: "Mockups for startup launch deck.",
       description:
-        "A set of visual assets used in TechNest’s investor pitch deck including mockups and infographics.",
+        "GComic is a bold, modern cosmetics and fragrance brand concept that redefines elegance through simplicity. Built with a sleek and minimalist identity, the brand blends clean geometry with a premium feel—designed to resonate with a youthful, style-conscious audience.",
       summaryHighlights: [
         {
-          title: "Pitch Ready",
-          text: "Investor-focused UI storytelling",
+          title: "Presentation Design",
+          text: "consistent visual language, retail-ready packaging",
         },
       ],
-      involvement: ["Graphic Design", "Mockup Creation", "Slide Design"],
-      videoUrl: "https://player.vimeo.com/video/556677889",
-      thumbnail: "/assets/project2.jpg",
+      involvement: ["Graphic Design", "Mockup Creation", " Display Assets"],
+      src:  "/assets/Gcominc.webp",
+      thumbnail: "/assets/Gcominc2.webp",
       related: [2, 4],
     },
     {
@@ -170,11 +178,11 @@ export const portfolioItems = [
     {
       id: 9,
       type: "Websites",
-      brand: "TechNest",
+      brand: "Pallet Ross",
       category: "Web Development",
-      caption: "Website redesign for tech startup.",
+      caption: "A Canvas for the Bold and Brilliant",
       description:
-        "Final deployment of the TechNest website, optimized for performance and mobile experience.",
+        "Pallet Ross is a digital platform designed to spotlight creativity by providing artists and designers a space to showcase their masterpieces. Inspired by the emotion and depth behind every brushstroke, Pallet Ross merges elegant simplicity with visual impact. Zi Creates led the brand’s conceptual design—building an identity system that reflects artistic freedom, clarity, and a modern approach to curation.",
       summaryHighlights: [
         {
           title: "Lighthouse Score",
@@ -182,27 +190,31 @@ export const portfolioItems = [
         },
       ],
       involvement: ["Frontend Dev", "Accessibility", "Performance Tuning"],
-      videoUrl: "https://player.vimeo.com/video/987654321",
-      thumbnail: "/assets/project2.jpg",
+      videoUrl: "https://player.vimeo.com/video/1104271320?autoplay=1",
+      src: "/assets/PalletRoss.png",
       related: [2, 4],
     },
     {
       id: 10,
       type: "Motion Designs",
-      brand: "Nova App",
-      category: "Microinteractions Reel",
+      brand: "Eterna Hybrid Exchange",
+      category: "Animated Explainer",
       caption: "App promo motion graphic video.",
       description:
-        "We stitched together various microinteractions used in Nova App for a UI showcase video.",
+        "Eterna Hybrid Exchange is a next-gen digital asset trading platform that bridges the power of centralized performance with decentralized transparency. Built for the future of finance, Eterna offers fast, secure, and flexible trading across crypto and digital assets. Zi Creates to produce a high-impact animated explainer video—turning complex blockchain technology into an engaging, easy-to-understand story.",
       summaryHighlights: [
         {
-          title: "Micro UX",
-          text: "Tiny but delightful interactions",
+          title: "Voiceover & Sound Design",
+          text: "tone-matched voice and ambient audio",
         },
+        {
+            title: "Animation & Motion Design",
+            text: "sleek transitions, iconography, and custom illustrations",
+          },
       ],
       involvement: ["UI Recording", "Editing", "Motion Design"],
-      videoUrl: "https://player.vimeo.com/video/112233445",
-      thumbnail: "/assets/motion1-thumb.jpg",
+      videoUrl: "https://player.vimeo.com/video/1104282120?autoplay=1",
+      src: "/assets/eterna.png",
       related: [3, 6],
     },
   ];
