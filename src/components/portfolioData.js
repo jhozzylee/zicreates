@@ -19,7 +19,7 @@ export const portfolioItems = [
       ],
       involvement: ["Brand Strategy", "Social Media Rebranding ", "Visual Identity"],
       src: "/assets/ki-computing2.png",
-      thumbnail: "/assets/ki-computing.png",
+      thumbnail: "/assets/Ki-computing.png",
       related: [2, 4, 8],
     },
     {

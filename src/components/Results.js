@@ -24,13 +24,11 @@ const Results = () => {
             <img
               src={img1}
               alt="Project 1"
-              loading="lazy"
               className="rounded-[8px] object-cover w-full hover:scale-105 transition-transform duration-300"
             />
             <img
               src={img3}
               alt="Project 3"
-              loading="lazy"
               className="rounded-[8px] object-cover w-full hover:scale-105 transition-transform duration-300"
             />
           </div>
@@ -41,7 +39,6 @@ const Results = () => {
               <img
                 src={img2a}
                 alt="Project 2a"
-                loading="lazy"
                 className="rounded-[8px] object-cover w-full hover:scale-105 transition-transform duration-300"
               />
               <img
@@ -57,13 +54,11 @@ const Results = () => {
               <img
                 src={img4a}
                 alt="Project 4a"
-                loading="lazy"
                 className="rounded-[8px] object-cover w-full hover:scale-105 transition-transform duration-300"
               />
               <img
                 src={img4b}
                 alt="Project 4b"
-                loading="lazy"
                 className="rounded-[8px] object-cover w-full hover:scale-105 transition-transform duration-300"
               />
             </div>

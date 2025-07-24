@@ -85,7 +85,7 @@ const Portfoliopage = () => {
                   />
                 )}
               </div>
-              <div className="p-4">
+              <div className="py-4">
                 <h3 className="text-xl font-semibold font-poppins mb-1">
                   {item.brand}
                 </h3>
