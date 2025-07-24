@@ -18,7 +18,7 @@ export const portfolioItems = [
         },
       ],
       involvement: ["Brand Strategy", "Social Media Rebranding ", "Visual Identity"],
-      src: "/assets/ki-computing.png",
+      src: "/assets/ki-computing2.png",
       thumbnail: "/assets/ki-computing.png",
       related: [2, 4, 8],
     },
@@ -48,15 +48,15 @@ export const portfolioItems = [
     {
       id: 3,
       type: "Motion Designs",
-      brand: "Nova App",
+      brand: "Webshapers",
       category: "Promo Video",
-      caption: "App promo motion graphic video.",
+      caption: "Promo motion graphic video.",
       description:
-        "Nova App needed a punchy 45-second promo for their launch. We crafted a sleek animation to showcase its features and value prop in under a minute.",
+        "Webshapers is a forward-thinking digital agency focused on helping brands unlock online growth through performance-driven strategies and cutting-edge web experiences. Zi Creates collaborated with Webshapers to enhance its brand visuals and create dynamic content that better communicates its bold, energetic identity.",
       summaryHighlights: [
         {
           title: "Editing style",
-          text: "Fast cuts with upbeat music",
+          text: "kinetic motion, tech-style transitions, bold typography with upbeat music",
         },
         {
           title: "Animation",
@@ -64,8 +64,8 @@ export const portfolioItems = [
         },
       ],
       involvement: ["Storyboarding", "Motion Design", "Sound Design"],
-      videoUrl: "https://player.vimeo.com/video/112233445",
-      thumbnail: "/assets/motion1-thumb.jpg",
+      videoUrl: "https://player.vimeo.com/video/1102249418?autoplay=1",
+      src: "/assets/Ws-03.png",
       related: [5, 6],
     },
     {
@@ -147,20 +147,20 @@ export const portfolioItems = [
     {
       id: 8,
       type: "Branding",
-      brand: "Luma Store",
+      brand: "Crestville Appartments",
       category: "Visual Identity",
-      caption: "Brand identity and packaging design.",
+      caption: "Brand identity and Visuals design.",
       description:
-        "Phase two of our branding work with Luma focused on extending visual elements to new product lines.",
+        "Crestville Apartments, a short‑let real estate brand under Assethaus in Lagos, specializes in affordable luxury serviced apartments in key locations (Surulere & Ilupeju). Since its inception, it has rapidly scaled with high occupancy rates and strong repeat bookings.",
       summaryHighlights: [
         {
           title: "Consistency",
-          text: "Unified look across SKUs",
+          text: "Defined positioning of affordability with luxury, targeting middle‑high earners",
         },
       ],
-      involvement: ["Packaging", "Sub-branding", "Design System"],
-      videoUrl: "https://player.vimeo.com/video/123456789",
-      thumbnail: "/assets/project1.jpg",
+      involvement: ["Visual Identity", "Sub-branding", "Collateral Design"],
+      src: "/assets/Crestville2.png",
+      thumbnail: "/assets/Crestville1.png",
       related: [1],
     },
     {

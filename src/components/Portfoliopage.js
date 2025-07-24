@@ -64,7 +64,7 @@ const Portfoliopage = () => {
           {filteredItems.map((item) => (
             <div
               key={item.id}
-              className="bg-[#1A1A1A] rounded-2xl overflow-hidden shadow-lg hover:scale-[1.02] transition-transform cursor-pointer"
+              className="bg-background rounded-2xl overflow-hidden shadow-lg hover:scale-[1.02] transition-transform cursor-pointer"
               onClick={() => setSelectedProject(item)}
             >
               <div className="aspect-video bg-black">

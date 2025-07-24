@@ -110,7 +110,7 @@ const PortfolioModal = ({ project, onClose, setProject }) => {
           {relatedProjects.length > 0 && (
             <div>
               <h4 className="text-lg font-medium mb-2">Related Projects</h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {relatedProjects.map((item) => (
                   <div
                     key={item.id}
@@ -118,7 +118,7 @@ const PortfolioModal = ({ project, onClose, setProject }) => {
                     className="space-y-2 cursor-pointer group"
                   >
                     <img
-                      src={item.thumbnail}
+                      src={item.src}
                       alt={item.brand}
                       className="rounded-md w-full group-hover:opacity-80 transition"
                     />
