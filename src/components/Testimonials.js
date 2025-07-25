@@ -7,10 +7,12 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import "./Testimonials.css";
 
-import testimonial1 from "../assets/images/client1.png";
-import testimonial2 from "../assets/images/client2.png";
+import testimonial1 from "../assets/images/Ayoola.webp";
+import testimonial2 from "../assets/images/Client.webp";
+import testimonial3 from "../assets/images/Solomon.webp";
 import logo1 from "../assets/images/Crestville.png";
 import logo2 from "../assets/images/Uplift.png";
+import logo3 from "../assets/images/ByteBazaar.png";
 
 // Testimonial Card
 const TestimonialCard = ({ photo, quote, name, title, logo }) => (
@@ -28,7 +30,7 @@ const TestimonialCard = ({ photo, quote, name, title, logo }) => (
             <p className="text-lg font-medium">{name}</p>
             <p className="text-sm text-gray-400 max-w-[136px]">{title}</p>
           </div>
-          <img src={logo} alt="Company Logo" className="w-[80px] h-auto" />
+          <img src={logo} alt="Company Logo" className=" h-8" />
         </div>
       </div>
     </div>
@@ -39,19 +41,46 @@ const Testimonials = () => {
   const testimonials = [
     {
       photo: testimonial1,
-      quote:
-        "Zi Create transformed our online presence with stunning design and strategic social media management. Their work exceeded our expectations, though expanding their service offerings could provide even more value. Overall, a fantastic experience!",
-      name: "Amaka Johnson",
+      quote: (
+        <>
+        Zi Create transformed our online presence with{" "}
+        <span className="text-primary">stunning design</span> and{" "}
+        <span className="text-primary">strategic social media management</span>.
+        Their work exceeded our expectations, though expanding their service
+        offerings could provide even more value. Overall, a{" "}
+        <span className="text-primary">fantastic experience!</span>
+      </>
+      ),
+      name: "Wasiu (Ayoola) Olanisebe",
       title: "Marketing Lead, Crestville",
       logo: logo1,
     },
     {
       photo: testimonial2,
       quote:
-        "From strategy to design, everything felt intentional. We finally feel seen in the digital space.",
-      name: "David Ayeni",
+      <>
+      From branding to execution, Zi Create delivered{" "}
+      <span className="text-primary">professional quality</span> at every step.
+      Their team was proactive, responsive, and delivered a{" "}
+      <span className="text-primary">visually stunning result</span>. Highly recommended!
+      </>,
+      name: "Sofia Bennett",
       title: "Founder, Uplift",
       logo: logo2,
+    },
+    {
+      photo: testimonial3,
+      quote:
+      <>
+      Working with Zi Create was a breeze. Their{" "}
+      <span className="text-primary">creative direction</span> brought our brand
+      to life, and their team communicated with{" "}
+      <span className="text-primary">impressive clarity</span>. We loved the{" "}
+      <span className="text-primary">attention to detail</span> throughout the project.
+    </>,
+      name: "Solomon Gbewa",
+      title: "CEO, ByteBazaar",
+      logo: logo3,
     },
   ];
 
