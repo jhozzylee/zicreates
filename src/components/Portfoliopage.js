@@ -78,7 +78,6 @@ const Portfoliopage = () => {
                   />
                 ) : (
                   <img
-                    loading="lazy"
                     className="w-full h-full object-cover"
                     src={item.src}
                     alt={item.brand}
@@ -86,7 +85,7 @@ const Portfoliopage = () => {
                 )}
               </div>
               <div className="py-4">
-                <h3 className="text-xl font-semibold font-poppins mb-1">
+                <h3 className="text-xl font-semibold mb-1">
                   {item.brand}
                 </h3>
                 <p className="text-sm text-neutral/80">{item.caption}</p>

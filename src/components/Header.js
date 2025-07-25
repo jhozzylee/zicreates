@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CTAButton from "./CTAButton";
-import GetStarted from "./GetStarted"; // ✅ correct name
+import GetStarted from "./GetStarted";
 import logo from "../assets/images/Logo.svg";
 
 const Header = () => {

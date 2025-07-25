@@ -41,10 +41,10 @@ const Hero = ({ onOpenBookCall }) => {
 
           {/* Mobile Video */}
           <div className="block lg:hidden mb-2">
-            <div className="relative max-w-[552px] mx-auto rounded-xl overflow-hidden shadow-lg">
+            <div className="relative max-w-[552px] mx-auto rounded-xl overflow-hidden shadow-lg px-2">
               <img src={bgImage} alt="Video cover" className="w-full h-auto object-cover" />
               <div className="absolute inset-0 flex justify-center items-center z-10">
-                <div className="relative" style={{ width: "clamp(176px, 55vw, 284px)" }}>
+                <div className="relative px-1" style={{ width: "clamp(176px, 55vw, 284px)" }}>
                   <video
                     className="w-full h-auto rounded-[8px]"
                     src={heroVideo}
@@ -73,7 +73,7 @@ const Hero = ({ onOpenBookCall }) => {
             impactful digital marketing, we make it happen for people and businesses.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-[40px]">
+          <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-[40px]">
             <CTAButton text="Book a Call" onClick={onOpenBookCall} />
             <button
               onClick={() => setOpen(true)}

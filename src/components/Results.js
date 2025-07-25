@@ -44,7 +44,6 @@ const Results = () => {
               <img
                 src={img2b}
                 alt="Project 2b"
-                loading="lazy"
                 className="rounded-[8px] object-cover w-full hover:scale-105 transition-transform duration-300"
               />
             </div>

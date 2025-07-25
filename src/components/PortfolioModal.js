@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import CTAButton from "./CTAButton";
 import { portfolioItems } from "./portfolioData";
+import GetStarted from "./GetStarted";
 
 const PortfolioModal = ({ project, onClose, setProject }) => {
+  const [showModal, setShowModal] = useState(false);
+
   if (!project) return null;
 
   const relatedProjects = portfolioItems.filter((p) =>
@@ -15,12 +18,12 @@ const PortfolioModal = ({ project, onClose, setProject }) => {
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-2xl text-nuted hover:text-primary z-10"
+          className="absolute top-4 right-4 text-2xl text-nuted hover:text-primary z-10 pt-6"
         >
           &times;
         </button>
 
-        {/* 🟡 Mobile Video Full Width */}
+        {/* Mobile Video Full Width */}
         <div className="md:hidden w-full pt-20">
           <div className="aspect-video w-full">
             {project.videoUrl ? (
@@ -82,7 +85,8 @@ const PortfolioModal = ({ project, onClose, setProject }) => {
             </div>
           )}
 
-          <CTAButton text="Give Zi Create a try" />
+          {/* CTA Button */}
+          <CTAButton text="Give Zi Create a try" onClick={() => setShowModal(true)} />
         </div>
 
         {/* Right Panel (Video + Related) - only on desktop */}
@@ -131,6 +135,11 @@ const PortfolioModal = ({ project, onClose, setProject }) => {
           )}
         </div>
       </div>
+
+      {/* ✅ Render GetStarted Modal */}
+      {showModal && (
+        <GetStarted isOpen={showModal} onClose={() => setShowModal(false)} />
+      )}
     </div>
   );
 };
