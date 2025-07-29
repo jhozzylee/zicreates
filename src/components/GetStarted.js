@@ -75,16 +75,16 @@ const GetStarted = ({ isOpen, onClose }) => {
       onRequestClose={onClose}
       contentLabel="Get Started Form"
       overlayClassName="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center"
-      className="bg-background border border-neutral/20 text-neutral w-full max-w-screen-md max-h-screen overflow-y-auto rounded-[8px] p-6 sm:p-8 md:p-12 relative"
+      className="bg-background border border-neutral/20 text-neutral w-full max-w-4xl max-h-screen overflow-y-auto rounded-[8px] p-6 sm:p-8 md:p-12 relative"
     >
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 text-neutral hover:opacity-70 text-2xl"
+        className="absolute top-4 right-4 text-neutral hover:opacity-70 text-2xl p-4"
       >
         ×
       </button>
 
-      <h2 className="text-[28px] md:text-[32px] font-semibold mb-4">
+      <h2 className="text-[28px] md:text-[32px] font-semibold mb-4 py-4">
         In need of creative?
       </h2>
 

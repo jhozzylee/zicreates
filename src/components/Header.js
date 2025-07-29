@@ -12,7 +12,7 @@ const Header = () => {
 
   const handleModalOpen = () => {
     setShowModal(true);
-    setMenuOpen(false); // Optional: close menu if modal opens
+    setMenuOpen(false);
   };
 
   return (

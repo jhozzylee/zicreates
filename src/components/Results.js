@@ -66,7 +66,7 @@ const Results = () => {
 
         {/* See More Button */}
         <div className="flex justify-center mt-12">
-          <CTAButton text="See more" link="/portfolio" />
+          <CTAButton text="View Portfolio" link="/portfolio" />
         </div>
       </div>
     </section>

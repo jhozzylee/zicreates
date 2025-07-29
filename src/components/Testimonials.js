@@ -1,8 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
+import { Pagination, Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import "./Testimonials.css";
@@ -51,7 +50,7 @@ const Testimonials = () => {
         <span className="text-primary">fantastic experience!</span>
       </>
       ),
-      name: "Wasiu (Ayoola) Olanisebe",
+      name: "Wasiu Olanisebe",
       title: "Marketing Lead, Crestville",
       logo: logo1,
     },
@@ -100,15 +99,11 @@ const Testimonials = () => {
 
       <div className="relative group">
         <Swiper
-          modules={[Navigation, Pagination, Autoplay, EffectFade]}
+          modules={[ Pagination, Autoplay, EffectFade]}
           loop
           autoplay={{ delay: 6000 }}
           effect="fade"
           fadeEffect={{ crossFade: true }}
-          navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          }}
           pagination={{
             el: ".swiper-pagination",
             clickable: true,
@@ -121,9 +116,6 @@ const Testimonials = () => {
           ))}
         </Swiper>
 
-        {/* Navigation */}
-        <div className="swiper-button-prev hidden md:block absolute left-0 top-1/2 -translate-y-1/2 px-[200px] text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-        <div className="swiper-button-next hidden md:block absolute right-0 top-1/2 -translate-y-1/2 px-[200px] text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
       </div>
 
       {/* Pagination Dots */}

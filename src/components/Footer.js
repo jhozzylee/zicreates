@@ -5,7 +5,7 @@ import logo from "../assets/images/Footer_Logo.svg";
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-b from-[#0F0F0F] to-[#2D4059] text-neutral px-6 py-16">
-      <div className="max-w-[1280px] mx-auto flex flex-wrap justify-between gap-6 footer-columns">
+      <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row flex-wrap justify-between gap-8 md:gap-6 footer-columns">
         {/* Brand Column */}
         <div className="max-w-[240px]">
           <img src={logo} alt="Zi Creates" className="w-[140px] mb-3" />
@@ -70,17 +70,49 @@ const Footer = () => {
         {/* Left Text */}
         <p className="text-[16px]">© 2025 Zi Creates. All rights reserved.</p>
 
-        {/* Social Icons */}
-        <div className="flex gap-4">
-          {[FaFacebookF, FaXTwitter, FaInstagram, FaLinkedinIn, FaYoutube].map((Icon, index) => (
-            <div
-              key={index}
-              className="w-9 h-9 flex items-center justify-center border-2 border-neutral text-neutral rounded-full p-2 transition-all duration-300 hover:bg-neutral hover:text-background"
-            >
-              <Icon size={18} />
-            </div>
-          ))}
-        </div>
+       {/* Social Icons */}
+      <div className="flex gap-4">
+        <a
+          href="https://www.facebook.com/share/1FGE8KdnaC/?mibextid=wwXIfr"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-9 h-9 flex items-center justify-center border-2 border-neutral text-neutral rounded-full p-2 transition-all duration-300 hover:bg-neutral hover:text-background"
+        >
+          <FaFacebookF size={18} />
+        </a>
+        <a
+          href="https://x.com/zi_creates?s=21&t=dDLLPjZbCvMQqDOtc57kOw"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-9 h-9 flex items-center justify-center border-2 border-neutral text-neutral rounded-full p-2 transition-all duration-300 hover:bg-neutral hover:text-background"
+        >
+          <FaXTwitter size={18} />
+        </a>
+        <a
+          href="https://www.instagram.com/zi_creates/profilecard/?igsh=dG8ybjE3M21ha2tk"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-9 h-9 flex items-center justify-center border-2 border-neutral text-neutral rounded-full p-2 transition-all duration-300 hover:bg-neutral hover:text-background"
+        >
+          <FaInstagram size={18} />
+        </a>
+        <a
+          href="https://www.linkedin.com/company/zi-creates"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-9 h-9 flex items-center justify-center border-2 border-neutral text-neutral rounded-full p-2 transition-all duration-300 hover:bg-neutral hover:text-background"
+        >
+          <FaLinkedinIn size={18} />
+        </a>
+        <a
+          href="https://www.youtube.com/zi-creates"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-9 h-9 flex items-center justify-center border-2 border-neutral text-neutral rounded-full p-2 transition-all duration-300 hover:bg-neutral hover:text-background"
+        >
+          <FaYoutube size={18} />
+        </a>
+      </div>
       </div>
     </footer>
   );
