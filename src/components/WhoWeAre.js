@@ -21,7 +21,7 @@ const WhoWeAre = () => {
         </h2>
 
         {/* Pillars */}
-        <div className="grid md:grid-cols-3 gap-8 place-items-center">
+        <div className="grid md:grid-cols-3 gap-8">
           {[ 
             {
               icon: <Infinity className="w-6 h-6 text-neutral" />,
@@ -41,12 +41,12 @@ const WhoWeAre = () => {
           ].map(({ icon, title, text }, i) => (
             <div
               key={i}
-              className="bg-gradient-to-b from-[#9AFFF71A] to-[#35504E1A] rounded-[16px] w-full max-w-[352px] py-[32px] px-[40px] border-background hover:border hover:border-[#30D5C833] transition-all duration-200"
+              className="bg-gradient-to-b from-[#9AFFF71A] to-[#35504E1A] rounded-[16px] w-full max-w-[452px] py-[32px] px-[40px] border-background hover:border hover:border-[#30D5C833] transition-all duration-200"
             >
               <div className="bg-background p-[10px] rounded-[40px] inline-block mb-4">
                 {icon}
               </div>
-              <h4 className="text-[18px] font-bold mb-2 max-w-[160px]">{title}</h4>
+              <h4 className="text-[18px] font-bold mb-2">{title}</h4>
               <p className="text-[16px]">{text}</p>
             </div>
           ))}

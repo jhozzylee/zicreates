@@ -67,7 +67,7 @@ const Hero = ({ onOpenBookCall }) => {
             </div>
           </div>
 
-          <p className="text-lg font-light mb-8 max-w-xl">
+          <p className="text-lg font-light mb-8 max-w-xl px-4 md:px-0">
             We launch, connect, and grow businesses with our innovative solutions.
             From strategic branding, stunning designs, compelling motion graphics and
             impactful digital marketing, we make it happen for people and businesses.
