@@ -81,8 +81,8 @@ const WhoWeAre = () => {
             <h2 className="text-[28px] md:text-[36px] font-bold mb-4">
               Your Go-To Agency for Powerful Branding & Visuals
             </h2>
-            <p className="text-[16px] mb-6">
-              We help businesses build strong, memorable brands through stunning visuals, smart design, and strategic marketing. From branding and motion graphics to UI/UX and digital marketing, we bring your vision to life with creativity and precision.
+            <p className="text-[16px] mb-8">
+              We help businesses build strong, memorable brands through stunning visuals, smart design, and strategic marketing. At Zi Creates, we’re not just a vendor — we’re part of your creative team. We work side-by-side with you to make sure every project is exactly what you need.
             </p>
             <CTAButton text="See what we do" link="/portfolio" />
           </div>

@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
+// Import your modals
+import Branding from "./Branding";
+import VisualDesign from "./VisualDesign";
+import Marketing from "./Marketing";
+import Website from "./Website";
+
 const WhatWeDo = () => {
-  const PillarCard = ({ title, items, buttonText }) => {
+  // State to track which modal is open, null means none open
+  const [openModal, setOpenModal] = useState(null);
+
+  // Functions to open each modal
+  const openBranding = () => setOpenModal("branding");
+  const openVisualDesign = () => setOpenModal("visualDesign");
+  const openMarketing = () => setOpenModal("marketing");
+  const openWebsite = () => setOpenModal("website");
+
+  // Close modal function
+  const closeModal = () => setOpenModal(null);
+
+  const PillarCard = ({ title, items, buttonText, onLearnMore }) => {
     return (
       <div className="w-full max-w-sm group border border-neutral px-4 py-6 sm:px-5 md:px-6 rounded-[16px] transition-all duration-200 hover:bg-[#30D5C81A] hover:border-primary flex flex-col justify-between">
         <div>
@@ -14,8 +32,10 @@ const WhatWeDo = () => {
           </ul>
         </div>
         <button 
-        aria-label={`Learn more about ${title}`}
-        className="group flex justify-between items-center w-full text-neutral font-normal border border-neutral rounded-[40px] px-4 sm:px-6 md:px-8 py-2 transition-all duration-200 group-hover:bg-[#30D5C81A] group-hover:text-primary group-hover:border-primary">
+          aria-label={`Learn more about ${title}`}
+          onClick={onLearnMore}
+          className="group flex justify-between items-center w-full text-neutral font-normal border border-neutral rounded-[40px] px-4 sm:px-6 md:px-8 py-2 transition-all duration-200 group-hover:bg-[#30D5C81A] group-hover:text-primary group-hover:border-primary"
+        >
           <span>{buttonText}</span>
           <ArrowRight className="w-4 h-4 transition-all duration-200 group-hover:translate-x-1" />
         </button>
@@ -40,6 +60,7 @@ const WhatWeDo = () => {
               "Visual Storytelling",
             ]}
             buttonText="Learn more"
+            onLearnMore={openBranding}
           />
           <PillarCard
             title="Visual Design"
@@ -50,6 +71,7 @@ const WhatWeDo = () => {
               "Custom Visual"
             ]}
             buttonText="Learn more"
+            onLearnMore={openVisualDesign}
           />
           <PillarCard
             title="Marketing"
@@ -60,6 +82,7 @@ const WhatWeDo = () => {
               "Paid Advertising",
             ]}
             buttonText="Learn more"
+            onLearnMore={openMarketing}
           />
           <PillarCard
             title="Website"
@@ -70,9 +93,16 @@ const WhatWeDo = () => {
               "UX Prototypes",
             ]}
             buttonText="Learn more"
+            onLearnMore={openWebsite}
           />
         </div>
       </div>
+
+      {/* Modals */}
+      {openModal === "branding" && <Branding isOpen={true} onClose={closeModal} />}
+      {openModal === "visualDesign" && <VisualDesign isOpen={true} onClose={closeModal} />}
+      {openModal === "marketing" && <Marketing isOpen={true} onClose={closeModal} />}
+      {openModal === "website" && <Website isOpen={true} onClose={closeModal} />}
     </section>
   );
 };

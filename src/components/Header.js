@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import CTAButton from "./CTAButton";
 import GetStarted from "./GetStarted";
 import logo from "../assets/images/Logo.svg";
@@ -7,11 +7,32 @@ import logo from "../assets/images/Logo.svg";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const navItems = ["Expertise", "Services", "Process", "Results", "Plans"];
 
   const handleModalOpen = () => {
     setShowModal(true);
+    setMenuOpen(false);
+  };
+
+  const handleNavClick = (section) => {
+    const sectionId = section.toLowerCase();
+
+    if (location.pathname !== "/") {
+      // Navigate to homepage, then scroll after a short delay
+      navigate("/");
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    } else {
+      // Already on homepage, just scroll
+      const el = document.getElementById(sectionId);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+
     setMenuOpen(false);
   };
 
@@ -27,13 +48,13 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md-lg:flex space-x-8 lg:space-x-6 md:space-x-4 sm:space-x-2 font-light text-[16px]">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                onClick={() => handleNavClick(item)}
                 className="text-neutral text-[16px] font-light px-6 py-2 rounded-full transition-all duration-200 ease-in-out border-l-0 border-r-0 border-transparent hover:border-l hover:border-r hover:border-primary"
               >
                 {item}
-              </a>
+              </button>
             ))}
           </nav>
 
@@ -66,14 +87,13 @@ const Header = () => {
         {menuOpen && (
           <div className="md-lg:hidden mt-4 px-1 space-y-10">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item}
-                href={`#${item.toLowerCase()}`}
-                onClick={() => setMenuOpen(false)}
+                onClick={() => handleNavClick(item)}
                 className="block text-neutral text-[16px] font-light"
               >
                 {item}
-              </a>
+              </button>
             ))}
             <div className="pt-2">
               <CTAButton text="Get Started" fullWidth onClick={handleModalOpen} />

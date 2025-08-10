@@ -5,7 +5,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 const ExtraSection = ({ onOpenBookCall }) => {
-  // 🔹 Reusable card as inline component
   const Card = ({ title, description, buttonText, onClick }) => (
     <div className="w-full h-[224px] group bg-[#30D5C81A] p-6 rounded-[16px] transition-all duration-200 hover:bg-[#30D5C833] border border-background hover:border-primary flex flex-col justify-between">
       <div>
@@ -17,15 +16,17 @@ const ExtraSection = ({ onOpenBookCall }) => {
         className="group flex justify-between items-center w-full text-neutral font-normal border border-neutral rounded-[40px] px-8 py-2 transition-all duration-200 group-hover:bg-[#30D5C81A] group-hover:text-primary group-hover:border-primary"
       >
         <span>{buttonText}</span>
-        <span className="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
+        <span className="inline-block transition-transform group-hover:translate-x-1">
+          &rarr;
+        </span>
       </button>
     </div>
   );
 
   return (
-    <section className="bg-background text-neutral pt-0 pb-20 px-4">
+    <section className="bg-background text-neutral pb-20 px-4">
       <div className="max-w-[1280px] mx-auto">
-        {/* ✅ Desktop Grid Layout */}
+        {/* Desktop Grid Layout */}
         <div className="hidden lg:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-10">
           <Card
             title="Let’s Talk Strategy"
@@ -47,13 +48,29 @@ const ExtraSection = ({ onOpenBookCall }) => {
           />
         </div>
 
-        {/* ✅ Mobile Swiper Layout */}
+        {/* Mobile & Tablet Swiper Layout */}
         <div className="lg:hidden">
           <Swiper
             spaceBetween={16}
-            slidesPerView={1}
             modules={[Pagination]}
             pagination={{ el: ".extra-pagination", clickable: true }}
+            breakpoints={{
+              0: {
+                slidesPerView: 1, // Mobile phones: 1 slide
+              },
+              640: {
+                slidesPerView: 1.9, // Tablets: show 1.5 slides so next peek shows
+                spaceBetween: 16,
+              },
+              768: {
+                slidesPerView: 1.9, // Larger tablets: 2 slides visible
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 3, // Small desktops: 3 slides visible
+                spaceBetween: 24,
+              },
+            }}
           >
             <SwiperSlide>
               <Card
