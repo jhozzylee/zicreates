@@ -88,7 +88,6 @@ const Terms = () => {
           <h3 className="text-lg font-semibold">10. Contact Us</h3>
           <p>
             📧 <a href="mailto:support@zicreates.com" className="text-primary underline">support@zicreates.com</a><br />
-            🌐 <a href="https://www.zicreates.com" target="_blank" rel="noopener noreferrer" className="text-primary underline">www.zicreates.com</a>
           </p>
         </div>
       </div>

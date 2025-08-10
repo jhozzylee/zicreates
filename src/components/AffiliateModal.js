@@ -20,7 +20,7 @@ const PartnerAffiliateModal = ({ isOpen, onClose }) => {
         ×
       </button>
 
-      <h2 className="text-[28px] md:text-[32px] font-semibold mb-6">
+      <h2 className="text-[30px] md:text-[32px] font-semibold mb-6">
         Partner & Affiliate Program
       </h2>
 

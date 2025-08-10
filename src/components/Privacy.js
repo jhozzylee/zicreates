@@ -122,16 +122,6 @@ const PrivacyPolicy = () => {
             >
               support@zicreates.com
             </a>
-            <br />
-            🌐{" "}
-            <a
-              href="https://www.zicreates.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary underline"
-            >
-              www.zicreates.com
-            </a>
           </p>
         </div>
       </div>

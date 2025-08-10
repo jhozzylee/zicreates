@@ -55,7 +55,7 @@ const Refund = () => {
           </ul>
 
           <p className="mt-6">
-            📧 <strong>Contact Us</strong>: If you have questions about this Refund Policy, email <a href="mailto:support@zicreates.com" className="text-primary underline">support@zicreates.com</a> or visit <a href="http://www.zicreates.com" target="_blank" rel="noopener noreferrer" className="text-primary underline">www.zicreates.com</a>.
+            📧 <strong>Contact Us</strong>: If you have questions about this Refund Policy, email <a href="mailto:support@zicreates.com" className="text-primary underline">support@zicreates.com</a>
           </p>
         </div>
       </div>
